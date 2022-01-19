@@ -1,0 +1,46 @@
+{%extends 'users/userbase.html'%}
+{%block contents%}
+
+
+<div class="container">
+
+
+         <h3 style="color:GREEN">
+            My Orders
+        </h3>
+
+<div class="row">
+    <table class="table">
+        <thead>
+  <tr class="text-primary">
+    <th>S.No</th>
+    <th>Order id</th>
+    <th>Order Date </th>
+    <th>Payment Type </th>
+    <th>Order Amount </th>
+
+  </tr>
+        </thead>
+         <tbody>
+        {% for p in data %}
+                            <tr class="text-info">
+                                <td>{{ forloop.counter }}</td>
+                                <td>{{ p.order_id }} <h2><a class="btn btn-info" href="/get_purchase_list/?order_id={{p.order_id}}" style="color:DARKBLUE">View Purchased Products</a></h2></td>
+                                <td> {{ p.order_date }}  </td>
+                                <td>{{ p.payment_type }}</td>
+                                <td>{{ p.order_amount }}</td>
+
+
+                            </tr>
+        {% endfor %}
+         </tbody>
+
+  </table>
+
+</div>
+</div>
+
+
+     <div>
+</section>
+{%endblock%}

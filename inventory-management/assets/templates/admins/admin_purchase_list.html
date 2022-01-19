@@ -1,0 +1,41 @@
+{%extends 'admins/adminbase.html'%}
+{%block contents%}
+<div class="container">
+
+<h4 style="color:GREEN">User Purchase Details</h4>
+<div class="row">
+    <table class="table">
+        <thead>
+  <tr class="text-primary">
+    <th>S.No</th>
+    <th>Product Name </th>
+    <th>Product Description </th>
+    <th>Quantity</th>
+    <th>TotalAmount</th>
+    <th>Discount</th>
+
+  </tr>
+        </thead>
+         <tbody>
+        {% for p in data %}
+                            <tr class="text-info">
+                                <td>{{ forloop.counter }}</td>
+                                <td>{{ p.product_name }}</td>
+                                <td>{{ p.product_description }}</td>
+                                <td>{{ p.units_on_order }}</td>
+                                <td>{{ p.total_bill_amount }}</td>
+                                <td>{{ p.discount_applied }}</td>
+
+                            </tr>
+        {% endfor %}
+         </tbody>
+
+  </table>
+
+</div>
+</div>
+
+
+     <div>
+</section>
+{%endblock%}

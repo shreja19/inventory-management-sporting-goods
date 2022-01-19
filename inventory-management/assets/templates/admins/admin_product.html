@@ -1,0 +1,99 @@
+{%extends 'admins/adminbase.html'%}
+{%block contents%}
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+<div class="container">
+  <h3 style="color:GREEN" >Add Sports Products</h3>
+  <form action="{%url 'admin_products'%}" method="post">
+    {%csrf_token%}
+    <div class="form-group">
+      <label for="name">Product Name:</label>
+      <input type="text" class="form-control" id="name" placeholder="Enter product name" name="product_name" required>
+    </div>
+	  <div class="form-group">
+      <label for="name">Product Description:</label>
+      <input type="text" class="form-control" id="name" placeholder="Enter product Description" name="product_description" required>
+    </div>
+	  <div class="form-group">
+      <label for="name">Price Per Unit:</label>
+      <input type="number" step="0.01" class="form-control" id="name" placeholder="Enter Price per Unit" name="price_per_unit" required>
+    </div>
+	  <div class="form-group">
+      <label for="name">Discount Per Unit:</label>
+      <input type="text" class="form-control" id="name" placeholder="Enter Discount per Unit" name="discount_per_unit" required>
+    </div>
+	  <div class="form-group">
+      <label for="name">Select Category</label>
+      <select class="form-control" id="name" name="category_name" required>
+		  <option>--Select Category of Product--</option>
+		  <option value="Hiking">Hiking</option>
+		  <option value="Tennis">Tennis</option>
+		  <option value="Swimming">Swimming </option>
+		  <option value="Yoga">Yoga </option>
+		  <option value="Water Sports">Water Sports </option>
+		  <option value="Soccer">Soccer </option>
+		  <option value="Cricket">Cricket </option>
+		  <option value="Gym Accessories">Gym Accessories </option>
+		  <option value="Badminton">Badminton </option>
+		  <option value="Golf">Golf </option>
+	  </select>
+    </div>
+
+
+
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+<div class="row">
+    <h3 style="color:GREEN">Inventory</h3>
+    <table>
+  <tr>
+    <th>S.No</th>
+    <th>Product Name</th>
+    <th>Product Description</th>
+    <th>Price Per Unit </th>
+    <th>Discount Per Unit </th>
+    <th>Units In Stock</th>
+    <th>Update </th>
+    <th>Delete </th>
+  </tr>
+        {% for p in data %}
+                            <tr>
+                                <td>{{ forloop.counter }}</td>
+                                <td>{{ p.product_name }}</td>
+                                <td>{{ p.product_description }}</td>
+                                <td>{{ p.price_per_unit }}</td>
+                                <td>{{ p.discount_per_unit }}</td>
+                                <td>{{ p.units_in_stock}}</td>
+                              <td><a class="btn-link" href="/AdminUpdateProducts/?id={{ p.product_id }}"
+                                           style="color:DARKBLUE">Update</a>
+                                    </td>
+                              <td><a class="btn-link" href="/AdminDeleteProduct/?id={{ p.product_id }}"
+                                           style="color:DARKBLUE">Delete</a>
+                                    </td>
+
+                            </tr>
+        {% endfor %}
+
+  </table>
+</div>
+</div>
+
+
+
+	{%endblock%}
+&nbsp;&nbsp;&nbsp;&nbsp;

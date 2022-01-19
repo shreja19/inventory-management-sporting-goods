@@ -1,0 +1,46 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>The Sporting Goods | Welcome</title>
+    <link rel="stylesheet" href="{% static 'css/style.css'%}"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+  </head>
+  <body>
+
+	<header>
+		<div class="container">
+			<div id="branding">
+				<h1><span class="highlight">The Sporting Goods Store</span></h1>
+			</div>
+			<nav>
+			<nav>
+				<ul>
+					<li><a href="{%url 'UserHome'%}">Home</a></li>
+					<li><a href="{%url 'user_search_by_category'%}">Purchase</a></li>
+					<li><a href="/userCheckCartData/?cust_id={{request.session.cid}}" class="nav-link">View Cart</a></li>
+					<li><a href="{%url 'user_order_details'%}">Order History</a></li>
+					<li><a href="{%url 'index'%}">Log Out</a></li>
+
+
+				</ul>
+
+			</nav>
+		</div>
+    </header>
+<div class="anyClass">
+{%block contents%}
+
+{%endblock%}
+</div>
+
+
+  </body>
+</html>

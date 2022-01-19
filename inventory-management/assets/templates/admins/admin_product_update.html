@@ -1,0 +1,60 @@
+{%extends 'admins/adminbase.html'%}
+{%block contents%}
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+<div class="container">
+  <h2>Update Sports Products</h2>
+  <form action="{%url 'admin_products_update'%}" method="post">
+    {%csrf_token%}
+      <input type="hidden" value="{{data.product_id}}" name="id">
+    <div class="form-group">
+      <label for="name">Product Name:</label>
+      <input type="text" class="form-control" id="name" value="{{data.product_name}}" name="product_name" required>
+    </div>
+	  <div class="form-group">
+      <label for="name">Product Description:</label>
+      <input type="text" class="form-control" id="name" value="{{data.product_description}}" name="product_description" required>
+    </div>
+	  <div class="form-group">
+      <label for="name">Price Per Unit:</label>
+      <input type="number" step="0.01" class="form-control" id="name" value="{{data.price_per_unit}}" name="price_per_unit" required>
+    </div>
+	  <div class="form-group">
+      <label for="name">Discount Per Unit:</label>
+      <input type="text" class="form-control" id="name" value="{{data.discount_per_unit}}" name="discount_per_unit" required>
+    </div>
+     <div>
+	  <div class="form-group">
+      <label for="name">Availability Stock:</label>
+      <input type="text" class="form-control" id="name" value="{{data.units_in_stock}}" name="units_in_stock" required>
+    </div>
+
+
+
+
+
+
+    <button type="submit" class="btn btn-default">Update</button>
+  </form>
+
+</div>
+
+
+
+	{%endblock%}
+&nbsp;&nbsp;&nbsp;&nbsp;
